@@ -67,6 +67,24 @@
             <cflog file="#this.name#" type="error" text="Stack Trace: #Arguments.Exception.tagContext[1].template#:#Arguments.Exception.tagContext[1].line#">
         </cfif>
 
+        <cfif findNoCase("password has expired", arguments.exception.message)>
+            <cfoutput>Your password has expired. Please reset it.</cfoutput>
+        <cfelse>
+            <cfoutput>Error: #arguments.exception.message#</cfoutput>
+        </cfif> 
+
     </cffunction>  --->
+
+   <!---  <cffunction name="onError" returnType="void">
+    <cfargument name="exception" required="true">
+    <cfargument name="eventName" required="true">
+
+    <cfif findNoCase("password has expired", arguments.exception.message)>
+        <cfoutput>Your password has expired. Please reset it.</cfoutput>
+    <cfelse>
+        <cfoutput>Error: #arguments.exception.message#</cfoutput>
+    </cfif>
+</cffunction> --->
+
 
 </cfcomponent>
